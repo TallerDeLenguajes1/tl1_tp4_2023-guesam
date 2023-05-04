@@ -9,6 +9,15 @@ struct tarea {
     int duracion; // entre 10 - 100
 } typedef tarea;
 
+struct nodo
+{
+    tarea T;
+    nodo * sig;
+} typedef nodo;
+
+nodo * pendientes;
+nodo * realizadas;
+
 void cargarTareas(tarea ** tareas, int num);
 void controlTareas(tarea ** tareas, tarea ** tareasT, int num);
 void mostrarTareas(tarea ** tareas, int num);
