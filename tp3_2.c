@@ -12,6 +12,7 @@ struct tarea {
 void cargarTareas(tarea ** tareas, int num);
 void controlTareas(tarea ** tareas, tarea ** tareasT, int num);
 void mostrarTareas(tarea ** tareas, int num);
+void buscarTarea(tarea ** tareas, int num);
 
 int main(){
     srand(time(NULL));
@@ -30,10 +31,11 @@ int main(){
 
     cargarTareas(tareas, num);
     controlTareas(tareas, tareasRealizadas, num);
-    printf("\nTareas pendientes\n");
-    mostrarTareas(tareasRealizadas, num);
     printf("\nTareas realizadas\n");
+    mostrarTareas(tareasRealizadas, num);
+    printf("\nTareas pendientes\n");
     mostrarTareas(tareas, num);
+    buscarTarea(tareas, num);
 
     return 0;
 }
@@ -86,3 +88,19 @@ void mostrarTareas(tarea ** tareas, int num){
     }
 }
 
+void buscarTarea(tarea ** tareas, int num){
+    char *aux, *clave;
+    printf("Ingrese la palabra clave: ");
+    fflush(stdin);
+    gets(clave);
+    for (int i = 0; i < num; i++){
+        if(tareas[i] != NULL){
+            aux = tareas[i]->descripcion;
+            if(strstr(aux, clave) != NULL){
+                printf("ID: %d \n", tareas[i]->tareaID);
+                printf("Descripcion: %s \n", tareas[i]->descripcion);
+                printf("Duracion: %d \n", tareas[i]->duracion);
+            }
+        }
+    }
+}
