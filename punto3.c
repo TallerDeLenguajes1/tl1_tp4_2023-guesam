@@ -1,4 +1,4 @@
-#include <stdio.h>
+/* #include <stdio.h>
 #include <stdlib.h>
 
 struct Tarea{
@@ -32,4 +32,4 @@ void eliminarNodo(Tnodo * nodo){
         free(nodo);
     }
     
-}
+} */
