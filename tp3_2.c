@@ -36,7 +36,8 @@ int main(){
     mostrarTareas(tareasRealizadas, num);
     printf("\nTareas pendientes\n");
     mostrarTareas(tareas, num);
-    buscarTarea(tareas, num);
+    buscarTareaPorId(tareas, num);
+    buscarTareaPorPalabra(tareas, num);
 
     return 0;
 }
