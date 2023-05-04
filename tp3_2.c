@@ -12,7 +12,8 @@ struct tarea {
 void cargarTareas(tarea ** tareas, int num);
 void controlTareas(tarea ** tareas, tarea ** tareasT, int num);
 void mostrarTareas(tarea ** tareas, int num);
-void buscarTarea(tarea ** tareas, int num);
+void buscarTareaPorId(tarea ** tareas, int num);
+void buscarTareaPorPalabra(tarea ** tareas, int num);
 
 int main(){
     srand(time(NULL));
@@ -88,7 +89,25 @@ void mostrarTareas(tarea ** tareas, int num){
     }
 }
 
-void buscarTarea(tarea ** tareas, int num){
+void buscarTareaPorId(tarea ** tareas, int num){
+    int id, aux;
+    printf("Ingrese el ID de la tarea que desea buscar: ");
+    scanf("%d", &id);
+    fflush(stdin);
+    for (int i = 0; i < num; i++){
+        if(tareas[i] != NULL){
+            aux = tareas[i]->tareaID;
+            if((aux) == id){
+                printf("\n");
+                printf("ID: %d \n", tareas[i]->tareaID);
+                printf("Descripcion: %s \n", tareas[i]->descripcion);
+                printf("Duracion: %d \n", tareas[i]->duracion);
+            }
+        }
+    }
+}
+
+void buscarTareaPorPalabra(tarea ** tareas, int num){
     char *aux, *clave;
     printf("Ingrese la palabra clave: ");
     fflush(stdin);
